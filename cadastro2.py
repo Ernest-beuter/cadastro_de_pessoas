@@ -1,4 +1,4 @@
-class pessoa:
+class Pessoa:
     def __init__(self, nome, idade, email):
         self.nome = nome
         self.idade = int(idade)
@@ -26,7 +26,7 @@ def cadastrar(lista):
     nome = input("nome: ")
     idade = int(input("idade: "))
     email = input("email: ")
-    lista.append(pessoa(nome, idade, email))
+    lista.append(Pessoa(nome, idade, email))
 def consultar(lista):
     tipo = input("consultar por |nome|idade|email: ")
     valor = input("a encontrar: ")
