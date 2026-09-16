@@ -11,7 +11,7 @@ class Pessoa:
             print("situação: maior")
         else:
             print("situação: menor")
-def exibirMenu():
+def exibir_menu():
     print("=========================")
     print(" CADASTRO DE PESSOAS")
     print("=========================")
@@ -70,7 +70,7 @@ def busca(caracteristica, valor, lista):
 op =0
 pessoas = list()
 while (op!=5):
-    op = exibirMenu()
+    op = exibir_menu()
     match(op):
         case 1:
             cadastrar(pessoas)
