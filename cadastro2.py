@@ -44,7 +44,7 @@ def alterar(lista):
     pes.idade  = nid
     pes.email  = nemail
     print("novos valores: ")
-    pes.printar
+    pes.printar()
 def listar(lista):
     print("\npessoas:\n")
     for x in lista:
@@ -53,17 +53,14 @@ def listar(lista):
 def busca(caracteristica, valor, lista):
     match(caracteristica):
         case "nome":
-            it = iter(lista)
             for x in lista :
                 if x.nome == valor:
                     return x
         case "idade":
-            it = iter(lista)
             for x in lista :
                 if x.idade == valor:
                     return x
         case "email":
-            it = iter(lista)
             for x in lista :
                 if x.email == valor:
                     return x
