@@ -7,7 +7,7 @@ class Pessoa:
         print("Nome: " + self.nome)
         print("idade: " + str(self.idade))
         print("email: " + self.email)
-        if(self.idade>=18):
+        if self.idade>=18:
             print("situação: maior")
         else:
             print("situação: menor")
@@ -55,21 +55,21 @@ def busca(caracteristica, valor, lista):
         case "nome":
             it = iter(lista)
             for x in lista :
-                if(x.nome == valor):
+                if x.nome == valor:
                     return x
         case "idade":
             it = iter(lista)
             for x in lista :
-                if(x.idade == valor):
+                if x.idade == valor:
                     return x
         case "email":
             it = iter(lista)
             for x in lista :
-                if(x.email == valor):
+                if x.email == valor:
                     return x
 op =0
 pessoas = list()
-while (op!=5):
+while op!=5:
     op = exibir_menu()
     match(op):
         case 1:
