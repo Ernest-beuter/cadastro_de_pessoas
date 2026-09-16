@@ -65,7 +65,7 @@ def busca(caracteristica, valor, lista):
                 if x.email == valor:
                     return x
 op =0
-pessoas = list()
+pessoas = []
 while op!=5:
     op = exibir_menu()
     match(op):
