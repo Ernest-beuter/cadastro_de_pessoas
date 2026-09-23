@@ -85,6 +85,3 @@ while op!=5:
             print("lol")
         case _:
             print("comando desconhecido")
-
-
-            
