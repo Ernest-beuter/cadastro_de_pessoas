@@ -1,3 +1,4 @@
+#cadastro de pessoas lmao
 class Pessoa:
     def __init__(self, nome, idade, email):
         self.nome = nome
