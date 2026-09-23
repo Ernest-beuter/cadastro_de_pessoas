@@ -12,6 +12,8 @@ class Pessoa:
             print("situação: maior")
         else:
             print("situação: menor")
+    def niver(self, anos):
+        self.idade = self.idade+anos
 def exibir_menu():
     print("=========================")
     print(" CADASTRO DE PESSOAS")
@@ -65,6 +67,7 @@ def busca(caracteristica, valor, lista):
             for x in lista :
                 if x.email == valor:
                     return x
+    return "unknown"
 op =0
 pessoas = []
 while op!=5:
@@ -82,3 +85,6 @@ while op!=5:
             print("lol")
         case _:
             print("comando desconhecido")
+
+
+            
