@@ -1,5 +1,5 @@
 #cadastro de pessoas lmao
-import pessoa
+from pessoa import Pessoa
 def exibir_menu():
     print("=========================")
     print(" CADASTRO DE PESSOAS")
