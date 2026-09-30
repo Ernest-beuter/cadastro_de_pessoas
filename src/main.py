@@ -1,19 +1,5 @@
 #cadastro de pessoas lmao
-class Pessoa:
-    def __init__(self, nome, idade, email):
-        self.nome = nome
-        self.idade = int(idade)
-        self.email = email
-    def printar(self):
-        print("Nome: " + self.nome)
-        print("idade: " + str(self.idade))
-        print("email: " + self.email)
-        if self.idade>=18:
-            print("situação: maior")
-        else:
-            print("situação: menor")
-    def niver(self, anos):
-        self.idade = self.idade+anos
+import pessoa
 def exibir_menu():
     print("=========================")
     print(" CADASTRO DE PESSOAS")
