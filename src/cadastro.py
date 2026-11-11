@@ -1,34 +1,37 @@
+from typing import List, Optional
 from pessoa import Pessoa
+from repositorio_pessoas import RepositorioPessoas
+from repositorio_pessoas_memoria import RepositorioPessoasMemoria
 
-pessoas = []
-def cadastrar(nome, idade, email):
-    pessoas.append(Pessoa(nome, idade, email))
-def consultar(tipo, valor):
-    pes = busca(tipo, valor)
-    pes.printar()
-def alterar(nomeantigo, nomenovo, idadenova, emailnovo):
-    pes = busca("nome", nomeantigo)
-    print("valores atuais: ")
-    pes.printar()
-    pes.nome   = nomenovo
-    pes.idade  = idadenova
-    pes.email  = emailnovo
-    print("novos valores: ")
-    pes.printar()
-def listar():
-    return pessoas
-def busca(caracteristica, valor):
-    match(caracteristica):
-        case "nome":
-            for x in pessoas :
-                if x.nome == valor:
-                    return x
-        case "idade":
-            for x in pessoas :
-                if x.idade == valor:
-                    return x
-        case "email":
-            for x in pessoas :
-                if x.email == valor:
-                    return x
-    return "unknown"
+
+class CadastroPessoas:
+    """Gerencia as operações de cadastro de pessoas."""
+
+    def __init__(
+        self, repositorio: Optional[RepositorioPessoas] = None
+    ) -> None:
+        if repositorio is None:
+            repositorio = RepositorioPessoasMemoria()
+
+        self.__repositorio = repositorio
+
+    def cadastrar(self, nome, idade, email):
+        pessoa = Pessoa(nome, idade, email)
+        self.__repositorio.cadastrar(pessoa)
+        return pessoa
+    def buscarPorNome(self, nome):
+        return self.__repositorio.buscar(nome)
+    
+    def listar(self) -> List[Pessoa]:
+        return self.__repositorio.listar()
+    
+    def alterar(self, nome, novo_nome, nova_idade, novo_email):
+        pessoa = self.buscarPorNome(nome)
+        if pessoa is None:
+            return None
+        
+        pessoa.setNome(novo_nome)
+        pessoa.setIdade(nova_idade)
+        pessoa.setEmail(novo_email)
+
+        return pessoa
