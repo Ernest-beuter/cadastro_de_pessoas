@@ -1,5 +1,14 @@
-from pessoa import Pessoa
-import cadastro
+from cadastro import CadastroPessoas
+from repositorio_pessoas_mysql import RepositorioPessoasMySQL
+from repositorio_pessoas_memoria import RepositorioPessoasMemoria
+
+USAR_MYSQL = True
+
+def criar_repositorio():
+    if USAR_MYSQL:
+        return RepositorioPessoasMySQL.aPartirDoAmbiente()
+    return RepositorioPessoasMemoria()
+
 def exibir_menu():
     print("=========================")
     print(" CADASTRO DE PESSOAS")
@@ -12,6 +21,8 @@ def exibir_menu():
     ops = int(input("Escolha uma opcao: "))
     return ops
 
+cadastro = CadastroPessoas(criar_repositorio())
+
 op =0
 while op!=5:
     op = exibir_menu()
@@ -22,14 +33,14 @@ while op!=5:
             email = input("email: ")
             cadastro.cadastrar(nome, idade, email)
         case 2:
-            
+
             tipo = input("consultar por |nome|idade|email: ")
             valor = input("a encontrar: ")
-            cadastro.consultar(tipo, valor)
+            cadastro.buscarPorNome(valor)
         case 3:
-            
+
             valor = input("alterar: |nome|: ")
-            
+
             nnom = input("novo nome: ")
             nid = int(input("nova idade: "))
             nemail = input("novo email: ")
